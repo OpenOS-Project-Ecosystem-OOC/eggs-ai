@@ -1,5 +1,5 @@
 {
-  "name": "eggs-ai",
+  "name": "@openos-project/eggs-ai",
   "version": "0.1.0",
   "description": "AI agent for Penguins-Eggs — diagnostics, guided ISO building, config generation, and knowledge-base Q&A",
   "type": "module",
@@ -45,6 +45,9 @@
     "url": "https://gitlab.com/OSPF1896/eggs-ai/issues"
   },
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://gitlab.com/api/v4/projects/81413396/packages/npm/"
+  },
   "files": [
     "dist/",
     "bin/",

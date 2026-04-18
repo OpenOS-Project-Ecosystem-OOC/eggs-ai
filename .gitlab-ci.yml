@@ -61,3 +61,18 @@ release:
   rules:
     - if: '$CI_COMMIT_TAG =~ /^v/'
   needs: []
+
+publish:
+  stage: release
+  image: node:22
+  <<: *node-cache
+  script:
+    - npm ci
+    - npm run build
+    - |
+      npm publish \
+        --registry "https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/" \
+        "--//gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}"
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v/'
+  needs: [release]
