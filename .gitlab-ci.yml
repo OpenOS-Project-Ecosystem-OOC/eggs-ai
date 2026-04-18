@@ -1,0 +1,67 @@
+# Converted from GitHub Actions — eggs-ai
+# Triggers: push/MR to main or master; tag pushes for release jobs.
+
+stages:
+  - test
+  - release
+
+default:
+  image: node:22
+
+.node-cache: &node-cache
+  cache:
+    key:
+      files: [package-lock.json]
+    paths: [node_modules/]
+
+# ── Test matrix ───────────────────────────────────────────────────────────────
+.test-base:
+  stage: test
+  <<: *node-cache
+  script:
+    - npm ci
+    - npm run build
+    - npm test
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'
+
+test:node-18:
+  extends: .test-base
+  image: node:18
+
+test:node-20:
+  extends: .test-base
+  image: node:20
+
+test:node-22:
+  extends: .test-base
+  image: node:22
+
+# ── Publish dry-run (main/master push only) ───────────────────────────────────
+publish-dry-run:
+  stage: release
+  <<: *node-cache
+  script:
+    - npm ci
+    - npm run build
+    - npm pack --dry-run
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH == "master"'
+  needs: [test:node-22]
+
+# ── GitLab Release (on tag) ───────────────────────────────────────────────────
+release:
+  stage: release
+  image: node:22
+  <<: *node-cache
+  script:
+    - npm ci
+    - npm run build
+    - npm pack
+  artifacts:
+    paths: ["*.tgz"]
+    expire_in: 30 days
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v/'
+  needs: []
