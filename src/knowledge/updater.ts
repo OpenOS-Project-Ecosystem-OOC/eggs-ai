@@ -17,7 +17,7 @@ const CACHE_DIR = join(homedir(), '.cache', 'eggs-ai');
 const DEFAULT_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
 
 const GITHUB_API = 'https://api.github.com';
-const REPO = 'Interested-Deving-1896/penguins-eggs';
+const REPO = 'pieroproietti/penguins-eggs';
 
 interface CacheEntry {
   data: string;

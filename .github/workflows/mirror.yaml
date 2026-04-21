@@ -1,3 +1,4 @@
+```yaml
 name: Mirror to OpenOS-Project-OSP
 
 on:
@@ -37,3 +38,4 @@ jobs:
           git push mirror 'refs/remotes/origin/*:refs/heads/*' --force
           git push mirror --tags --force
           rm -f ~/.git-credentials
+```  

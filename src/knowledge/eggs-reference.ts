@@ -268,7 +268,7 @@ export const CALAMARES_MODULES = {
 
 export const WARDROBE_COSTUMES = {
   description: 'Costumes are pre-configured system customizations that can be applied to transform a base system',
-  repository: 'https://gitlab.com/OSPF1896/penguins-wardrobe',
+  repository: 'https://github.com/pieroproietti/penguins-wardrobe',
   usage: [
     'eggs wardrobe get  — download the wardrobe repository',
     'eggs wardrobe list — list available costumes',

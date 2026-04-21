@@ -1,7 +1,7 @@
 {
   "name": "@openos-project/eggs-ai",
   "version": "0.1.0",
-  "description": "AI agent for Penguins-Eggs — diagnostics, guided ISO building, config generation, and knowledge-base Q&A",
+  "description": "AI agent for Penguins-Eggs \u2014 diagnostics, guided ISO building, config generation, and knowledge-base Q&A",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
@@ -38,16 +38,13 @@
   "author": "Eggs-AI Contributors",
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/OSPF1896/eggs-ai.git"
+    "url": "https://gitlab.com/openos-project/penguins-eggs_deving/eggs-ai.git"
   },
-  "homepage": "https://gitlab.com/OSPF1896/eggs-ai#readme",
+  "homepage": "https://gitlab.com/openos-project/penguins-eggs_deving/eggs-ai#readme",
   "bugs": {
-    "url": "https://gitlab.com/OSPF1896/eggs-ai/issues"
+    "url": "https://gitlab.com/openos-project/penguins-eggs_deving/eggs-ai/-/issues"
   },
   "license": "MIT",
-  "publishConfig": {
-    "registry": "https://gitlab.com/api/v4/projects/81413396/packages/npm/"
-  },
   "files": [
     "dist/",
     "bin/",
@@ -71,5 +68,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "registry": "https://gitlab.com/api/v4/projects/81413396/packages/npm/"
   }
 }
