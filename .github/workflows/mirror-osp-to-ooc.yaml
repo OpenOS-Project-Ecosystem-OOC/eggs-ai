@@ -27,6 +27,9 @@ jobs:
           # Detached HEAD avoids "refusing to fetch into checked-out branch"
           ref: ${{ github.sha }}
 
+      - name: Configure mirror remote
+        run: git remote add mirror "https://github.com/Interested-Deving-1896/eggs-ai.git"
+
       - name: Fetch all branches and tags
         run: git fetch --all --tags --prune
 
@@ -37,8 +40,6 @@ jobs:
           git config --global credential.helper store
           printf 'https://x-access-token:%s@github.com\n' "$MIRROR_TOKEN" \
             > ~/.git-credentials
-          git remote add mirror \
-            "https://github.com/Interested-Deving-1896/eggs-ai.git"
           git push mirror 'refs/remotes/origin/*:refs/heads/*' --force
           git push mirror --tags --force
           rm -f ~/.git-credentials
