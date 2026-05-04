@@ -28,10 +28,10 @@ jobs:
           ref: ${{ github.sha }}
 
       - name: Configure mirror remote
-        run: git remote add mirror "https://x-access-token:${{ secrets.MIRROR_TOKEN }}@github.com/Interested-Deving-1896/eggs-ai.git"
+        run: git remote add mirror "https://x-access-token:${{ secrets.MIRROR_TOKEN }}@github.com/Interested-Deving-1896/eggs-ai.git" || echo "Mirror remote already exists"
 
       - name: Fetch all branches and tags
-        run: git fetch --all --tags --prune
+        run: git fetch mirror --all --tags --prune
 
       - name: Push mirror to OpenOS-Project-Ecosystem-OOC
         run: |
