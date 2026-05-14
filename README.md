@@ -451,3 +451,9 @@ func (c *Client) AskAI(question string) (string, error) {
 ## License
 
 MIT
+
+## Origins
+
+eggs-ai is built on top of:
+- [Interested-Deving-1896/penguins-eggs](https://github.com/Interested-Deving-1896/penguins-eggs) — the Linux remastering tool this agent wraps
+- [Interested-Deving-1896/oa-tools](https://github.com/Interested-Deving-1896/oa-tools) — next-generation remastering engine (oa + coa)
