@@ -1,5 +1,7 @@
 # Eggs-AI
 
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/OpenOS-Project-OSP/eggs-ai)
+
 AI agent for [Penguins-Eggs](https://gitlab.com/openos-project/penguins-eggs_deving/penguins-eggs) — the universal Linux remastering tool.
 
 Eggs-AI understands penguins-eggs commands, configurations, and workflows. It provides diagnostics, guided ISO building, config generation, Calamares assistance, and general Q&A.
