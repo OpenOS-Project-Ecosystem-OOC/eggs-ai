@@ -4,37 +4,31 @@
 [![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/eggs-ai)
 
 <!-- AI:start:what-it-does -->
-This project provides an AI-powered agent for the Penguins-Eggs tool, addressing tasks such as system diagnostics, guided ISO creation, configuration file generation, and answering knowledge-base queries. It is designed for developers and system administrators working with Linux live systems and remastering workflows.
+This project provides an AI-powered agent for the Penguins-Eggs tool, a Linux system utility for creating and managing live ISO images. It assists users with diagnostics, guided ISO building, configuration generation, and querying a knowledge base. It is designed for developers and system administrators working with Linux live systems and remastering tasks.
 <!-- AI:end:what-it-does -->
 
 ## Architecture
 
 <!-- AI:start:architecture -->
-The project consists of several key components organized into distinct directories. The main functionality is implemented in TypeScript and compiled to JavaScript for distribution. The architecture includes:
+The project consists of several key components organized into a modular directory structure. The main entry point is `dist/index.js`, which serves as the runtime for the AI agent. The `bin/` directory contains executable scripts, including `eggs-ai` for CLI interactions and `eggs-ai-mcp` for the multi-channel processing server. The `src/` directory contains the TypeScript source code, organized into submodules such as `engine/` for core logic, `sdk/` for programmatic access, `providers/` for external integrations, and `bridge/` for communication with the Penguins-Eggs daemon. Protobuf definitions are stored in the `proto/` directory for inter-process communication. Build artifacts are output to the `dist/` directory. The project uses TypeScript for development, with build and test scripts defined in `package.json`.
 
-- **Core Engine**: Located in `src/engine/`, handles diagnostics, ISO building, and configuration generation.
-- **SDK**: Found in `src/sdk/`, provides programmatic access to Eggs-AI features.
-- **Providers**: Located in `src/providers/`, integrates external services like AI models.
-- **Bridge**: Found in `src/bridge/`, facilitates communication with Penguins-Eggs subsystems.
-- **CLI**: Defined in `src/index.ts` and `bin/`, exposes commands like `doctor` and `ask`.
-
-The `dist/` directory contains the compiled output, while `proto/` holds protocol definitions for inter-process communication. Workflows for CI/CD are defined in `.github/workflows/`.
-
-Directory structure:
-```plaintext
-eggs-ai/
-├── bin/                # CLI entry points
-├── dist/               # Compiled output
-├── proto/              # Protocol definitions
-├── src/
-│   ├── bridge/         # Daemon communication
-│   ├── engine/         # Core logic
-│   ├── providers/      # External service integrations
-│   ├── sdk/            # SDK for programmatic use
-│   └── index.ts        # Main entry point
-├── .github/workflows/  # CI/CD workflows
-├── package.json        # Project metadata and dependencies
-└── README.md           # Documentation
+```
+.
+├── bin/                  # CLI entry points
+├── dist/                 # Compiled output
+├── proto/                # Protobuf definitions
+├── src/                  # TypeScript source code
+│   ├── bridge/           # Daemon communication
+│   ├── engine/           # Core logic
+│   ├── providers/        # External integrations
+│   └── sdk/              # Programmatic API
+├── test/                 # Unit and integration tests
+├── .github/              # GitHub workflows
+├── examples/             # Example configurations and usage
+├── Dockerfile            # Docker build configuration
+├── docker-compose.yaml   # Docker Compose setup
+├── package.json          # Project metadata and scripts
+└── tsconfig.json         # TypeScript configuration
 ```
 <!-- AI:end:architecture -->
 
