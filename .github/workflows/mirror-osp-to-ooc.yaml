@@ -17,7 +17,7 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     # Only run when executing in the OSP repo — no-op if mirrored elsewhere
-    if: github.repository == 'OpenOS-Project-OSP/immutable-linux-framework'
+    if: github.repository == 'OpenOS-Project-OSP/eggs-ai'
     steps:
       - name: Checkout full history
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
             > ~/.git-credentials
 
           git remote add mirror \
-            "https://github.com/Interested-Deving-1896/immutable-linux-framework.git"
+            "https://github.com/OpenOS-Project-Ecosystem-OOC/eggs-ai.git"
 
           git push mirror --all --force
           git push mirror --tags --force
